@@ -18,4 +18,7 @@ for (let win of workspace.stackingOrder) {
   }
 }
 
-if (topmost != null) workspace.raiseWindow(topmost);
+if (topmost != null) {
+  workspace.raiseWindow(topmost);
+  workspace.activeWindow = topmost;
+}
