@@ -5,7 +5,7 @@ for (let win of workspace.stackingOrder) {
   const width = win.frameGeometry.width;
   const height = win.frameGeometry.height;
 
-  if (x >= workspace.workspaceWidth || y >= workspace.workspaceHeight || x + width <= 0 || y + height <= 0) {
+  if (x >= workspace.virtualScreenSize.width || y >= workspace.virtualScreenSize.height || x + width <= 0 || y + height <= 0) {
     win.frameGeometry = {
       x: 100,
       y: 100,

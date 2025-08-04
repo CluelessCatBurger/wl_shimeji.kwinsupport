@@ -10,7 +10,7 @@ for (let win of workspace.stackingOrder) {
   const height = win.frameGeometry.height;
 
   if (win.layer != 2 || win.minimized || win.deleted || (win.desktops.length != 0 && win.desktops.indexOf(workspace.currentDesktop) == -1)) continue;
-  if (x >= workspace.workspaceWidth || y >= workspace.workspaceHeight || x + width <= 0 || y + height <= 0) continue;
+  if (x >= workspace.virtualScreenSize.width || y >= workspace.virtualScreenSize.height || x + width <= 0 || y + height <= 0) continue;
 
   if (win.stackingOrder > order) {
     topmost = win;
