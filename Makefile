@@ -1,7 +1,7 @@
 BUILDDIR         ?= build
 PLUGINS_OUT_DIR  ?= $(BUILDDIR)/plugins
 CC               ?= cc
-OBJCOPY          ?= objcopy
+LD               ?= ld
 CFLAGS           ?=
 LDFLAGS          ?=
 
@@ -26,16 +26,16 @@ $(BUILDDIR) $(PLUGINS_OUT_DIR):
 
 # embed data.js as an object file
 $(DATA_OBJ): $(DATA_SRC) | $(BUILDDIR)
-	$(OBJCOPY) -I binary -O default $< $@
+	$(LD) -r -b binary $< -o $@
 
 $(MOVE_OBJ): $(MOVE_SRC) | $(BUILDDIR)
-	$(OBJCOPY) -I binary -O default $< $@
+	$(LD) -r -b binary $< -o $@
 
 $(RESTORE_OBJ): $(RESTORE_SRC) | $(BUILDDIR)
-	$(OBJCOPY) -I binary -O default $< $@
+	$(LD) -r -b binary $< -o $@
 
 $(ACTIVATE_OBJ): $(ACTIVATE_SRC) | $(BUILDDIR)
-	$(OBJCOPY) -I binary -O default $< $@
+	$(LD) -r -b binary $< -o $@
 
 # compile root.c
 $(ROOT_OBJ): $(ROOT_SRC) | $(BUILDDIR)
