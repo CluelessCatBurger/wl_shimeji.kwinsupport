@@ -43,7 +43,7 @@ $(ROOT_OBJ): $(ROOT_SRC) | $(BUILDDIR)
 
 # link shared object
 $(TARGET): $(DATA_OBJ) $(MOVE_OBJ) $(RESTORE_OBJ) $(ACTIVATE_OBJ) $(ROOT_OBJ) | $(PLUGINS_OUT_DIR)
-	$(CC) $(LDFLAGS) -shared -lwayland-shimeji-plugins -lsystemd -o $@ $^
+	$(CC) $(LDFLAGS) -shared -Wl,--no-as-needed -lwayland-shimeji-plugins -lsystemd -o $@ $^
 
 # clean up
 clean:
